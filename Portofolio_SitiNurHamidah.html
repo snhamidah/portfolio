@@ -1,0 +1,1437 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siti Nur Hamidah — Portofolio UI/UX Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --maroon-deep: #420e1c;
+        --maroon: #6b1626;
+        --maroon-light: #8e2a3e;
+        --black: #15100c;
+        --black-soft: #1e1712;
+        --cream: #f1e6d2;
+        --cream-soft: #faf4e7;
+        --gold: #c69433;
+        --gold-light: #e2c171;
+        --gold-dim: #9c7a34;
+        --ink: #241a13;
+        --ink-soft: rgba(36, 26, 19, 0.68);
+        --ink-on-dark: #f1e6d2;
+        --ink-on-dark-soft: rgba(241, 230, 210, 0.7);
+
+        --font-display: "Fraunces", serif;
+        --font-body: "Plus Jakarta Sans", sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+
+        --container: 1140px;
+        --section-pad: clamp(4rem, 9vw, 7.5rem);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+      }
+      ::selection {
+        background: var(--gold-light);
+        color: var(--maroon-deep);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        margin: 0;
+        color: inherit;
+        letter-spacing: -0.01em;
+      }
+
+      .wrap {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 5vw, 3rem);
+      }
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 1.1rem;
+        color: var(--gold-dim);
+      }
+      .eyebrow::before {
+        content: "";
+        width: 22px;
+        height: 1px;
+        background: var(--gold);
+        display: inline-block;
+      }
+      .section--dark .eyebrow {
+        color: var(--gold-light);
+      }
+
+      .section {
+        padding: var(--section-pad) 0;
+        position: relative;
+      }
+      .section--light {
+        background: var(--cream);
+        color: var(--ink);
+      }
+      .section--soft {
+        background: var(--cream-soft);
+        color: var(--ink);
+      }
+      .section--dark {
+        background: linear-gradient(
+          160deg,
+          var(--black) 0%,
+          var(--maroon-deep) 100%
+        );
+        color: var(--ink-on-dark);
+      }
+
+      /* ---------- nav ---------- */
+      header.nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(21, 16, 12, 0.92);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid rgba(198, 148, 51, 0.25);
+      }
+      .nav-inner {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0.9rem clamp(1.5rem, 5vw, 3rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-name {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        color: var(--cream-soft);
+        letter-spacing: 0.02em;
+      }
+      .nav-name span {
+        color: var(--gold);
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.9rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--ink-on-dark-soft);
+        padding-bottom: 4px;
+        border-bottom: 1px solid transparent;
+        transition:
+          color 0.25s,
+          border-color 0.25s;
+      }
+      .nav-links a:hover {
+        color: var(--gold-light);
+        border-color: var(--gold);
+      }
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: 1px solid var(--gold-dim);
+        color: var(--gold-light);
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        padding: 0.45rem 0.7rem;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 860px) {
+        .nav-links {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--black-soft);
+          flex-direction: column;
+          gap: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.35s ease;
+          border-bottom: 1px solid rgba(198, 148, 51, 0.25);
+        }
+        .nav-links.open {
+          max-height: 400px;
+        }
+        .nav-links li {
+          border-top: 1px solid rgba(198, 148, 51, 0.12);
+        }
+        .nav-links a {
+          display: block;
+          padding: 0.85rem clamp(1.5rem, 5vw, 3rem);
+          border-bottom: none;
+        }
+        .nav-toggle {
+          display: block;
+        }
+      }
+
+      /* ---------- ornament ---------- */
+      .divider {
+        width: 100%;
+        height: 20px;
+        color: var(--gold);
+        opacity: 0.55;
+      }
+      .section--dark .divider {
+        opacity: 0.4;
+      }
+      .divider svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .motif-bg {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        color: var(--gold);
+      }
+      .motif-bg svg {
+        width: 100%;
+        height: 100%;
+        opacity: 0.14;
+      }
+
+      .flourish {
+        width: 34px;
+        height: 34px;
+        color: var(--gold);
+        opacity: 0.85;
+        margin-bottom: 1.4rem;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        background: radial-gradient(
+          120% 140% at 15% 0%,
+          var(--maroon) 0%,
+          var(--maroon-deep) 45%,
+          var(--black) 100%
+        );
+        color: var(--ink-on-dark);
+        padding: clamp(2rem, 4vw, 3rem) 0 clamp(4rem, 8vw, 6rem);
+        overflow: hidden;
+      }
+      .hero .wrap {
+        position: relative;
+        z-index: 2;
+      }
+      .hero-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        margin-bottom: 1.6rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--gold);
+      }
+      h1.hero-name {
+        font-size: clamp(3rem, 8vw, 5.6rem);
+        font-weight: 600;
+        line-height: 0.98;
+        color: var(--cream-soft);
+        margin-bottom: 0.6rem;
+      }
+      h1.hero-name em {
+        font-style: italic;
+        font-weight: 450;
+        color: var(--gold-light);
+      }
+      .hero-role {
+        font-family: var(--font-mono);
+        font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+        letter-spacing: 0.06em;
+        color: var(--gold-light);
+        margin-bottom: 1.8rem;
+      }
+      .hero-desc {
+        /* max-width: 560px; */
+        font-size: clamp(1rem, 1.6vw, 1.15rem);
+        color: var(--ink-on-dark-soft);
+        margin-bottom: 2.6rem;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 3.2rem;
+      }
+      .btn {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.9rem 1.6rem;
+        border-radius: 2px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease,
+          color 0.25s ease,
+          border-color 0.25s;
+      }
+      .btn-solid {
+        background: var(--gold);
+        color: var(--maroon-deep);
+        border: 1px solid var(--gold);
+      }
+      .btn-solid:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        border: 1px solid var(--gold-dim);
+        color: var(--gold-light);
+        background: transparent;
+      }
+      .btn-outline:hover {
+        border-color: var(--gold);
+        color: var(--cream-soft);
+        transform: translateY(-2px);
+      }
+
+      .hero-contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem 2.6rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(198, 148, 51, 0.25);
+      }
+      .hero-contacts .item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+      .hero-contacts .label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        color: var(--gold-dim);
+        text-transform: uppercase;
+      }
+      .hero-contacts .value {
+        font-size: 0.92rem;
+        color: var(--ink-on-dark);
+      }
+
+      /* ---------- about ---------- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: clamp(2.5rem, 6vw, 5rem);
+        align-items: start;
+      }
+      @media (max-width: 860px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .about-lead {
+        font-family: var(--font-display);
+        font-weight: 450;
+        font-style: italic;
+        font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+        line-height: 1.45;
+        color: var(--maroon-deep);
+        margin-bottom: 1.6rem;
+      }
+      .about-body p {
+        color: var(--ink-soft);
+        font-size: 1rem;
+        margin: 0 0 1.1rem;
+      }
+      .stat-card {
+        background: var(--cream-soft);
+        border: 1px solid rgba(107, 22, 38, 0.15);
+        border-left: 3px solid var(--gold);
+        padding: 1.4rem 1.6rem;
+        margin-bottom: 1rem;
+      }
+      .stat-card .num {
+        font-family: var(--font-display);
+        font-size: 2.1rem;
+        color: var(--maroon);
+        line-height: 1;
+      }
+      .stat-card .lbl {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        color: var(--ink-soft);
+        text-transform: uppercase;
+        margin-top: 0.4rem;
+      }
+
+      /* ---------- skills ---------- */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.6rem;
+      }
+      @media (max-width: 700px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .skill-card {
+        background: var(--black-soft);
+        border: 1px solid rgba(198, 148, 51, 0.2);
+        padding: 1.9rem 2rem;
+        position: relative;
+      }
+      .skill-card h3 {
+        font-size: 1.05rem;
+        color: var(--gold-light);
+        margin-bottom: 1.1rem;
+        font-weight: 600;
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .tag {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        border: 1px solid rgba(198, 148, 51, 0.35);
+        color: var(--ink-on-dark-soft);
+        padding: 0.35rem 0.7rem;
+        border-radius: 2px;
+      }
+
+      /* ---------- timeline (experience & org) ---------- */
+      .timeline {
+        position: relative;
+        margin-top: 1rem;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        bottom: 6px;
+        width: 1px;
+        background: linear-gradient(var(--gold), transparent 96%);
+      }
+      .section--light .timeline::before,
+      .section--soft .timeline::before {
+        background: linear-gradient(rgba(107, 22, 38, 0.35), transparent 96%);
+      }
+      .t-item {
+        position: relative;
+        padding-left: 2.4rem;
+        padding-bottom: 2.6rem;
+      }
+      .t-item:last-child {
+        padding-bottom: 0;
+      }
+      .t-item::before {
+        content: "";
+        position: absolute;
+        left: -4px;
+        top: 6px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 4px var(--cream);
+      }
+      .section--dark .t-item::before {
+        box-shadow: 0 0 0 4px var(--black);
+      }
+      .t-period {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        color: var(--gold-dim);
+        text-transform: uppercase;
+        margin-bottom: 0.4rem;
+        display: block;
+      }
+      .t-role {
+        font-family: var(--font-display);
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.15rem;
+      }
+      .t-org {
+        font-size: 0.92rem;
+        color: var(--ink-soft);
+        margin-bottom: 0.7rem;
+        font-style: italic;
+      }
+      .section--dark .t-org {
+        color: var(--ink-on-dark-soft);
+      }
+      .t-desc {
+        font-size: 0.95rem;
+        max-width: 640px;
+        color: var(--ink-soft);
+      }
+      .section--dark .t-desc {
+        color: var(--ink-on-dark-soft);
+      }
+
+      /* ---------- education ---------- */
+      .edu-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.8rem;
+      }
+      @media (max-width: 700px) {
+        .edu-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .edu-card {
+        background: var(--cream-soft);
+        border: 1px solid rgba(107, 22, 38, 0.15);
+        padding: 2rem;
+        position: relative;
+      }
+      .edu-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--maroon);
+      }
+      .edu-card .period {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--gold-dim);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .edu-card h3 {
+        font-size: 1.25rem;
+        margin: 0.5rem 0 0.3rem;
+        color: var(--maroon-deep);
+      }
+      .edu-card .concentration {
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+        margin-bottom: 0.6rem;
+      }
+      .edu-card .gpa {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--maroon);
+      }
+
+      /* ---------- projects ---------- */
+      .proj-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      @media (max-width: 960px) {
+        .proj-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .proj-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .proj-card {
+        background: var(--cream-soft);
+        border: 1px solid rgba(107, 22, 38, 0.14);
+        padding: 1.7rem 1.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .proj-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 30px -18px rgba(66, 14, 28, 0.45);
+      }
+      .proj-tag {
+        align-self: flex-start;
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        background: var(--maroon);
+        color: var(--cream-soft);
+        padding: 0.3rem 0.6rem;
+      }
+      .proj-card h3 {
+        font-size: 1.1rem;
+        color: var(--maroon-deep);
+        line-height: 1.3;
+      }
+      .proj-period {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--gold-dim);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .proj-tools {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--ink-soft);
+      }
+      .proj-card p {
+        font-size: 0.88rem;
+        color: var(--ink-soft);
+        margin: 0;
+      }
+
+      /* ---------- organisasi list ---------- */
+      .org-list {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ---------- certificates ---------- */
+      .cert-cols {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: clamp(2rem, 5vw, 4rem);
+      }
+      @media (max-width: 860px) {
+        .cert-cols {
+          grid-template-columns: 1fr;
+        }
+      }
+      .cert-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .cert-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.1rem 0;
+        border-bottom: 1px solid rgba(198, 148, 51, 0.25);
+        font-size: 0.95rem;
+      }
+      .cert-list li .c-name {
+        color: var(--cream-soft);
+      }
+      .cert-list li .c-meta {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--gold-dim);
+        white-space: nowrap;
+      }
+      .badge-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        align-content: flex-start;
+      }
+      .badge {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        line-height: 1.4;
+        border: 1px solid rgba(198, 148, 51, 0.35);
+        color: var(--ink-on-dark-soft);
+        padding: 0.55rem 0.8rem;
+      }
+
+      /* ---------- contact / footer ---------- */
+      .contact-inner {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: clamp(2.5rem, 6vw, 5rem);
+        align-items: end;
+      }
+      @media (max-width: 860px) {
+        .contact-inner {
+          grid-template-columns: 1fr;
+        }
+      }
+      .contact-title {
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        color: var(--cream-soft);
+        line-height: 1.05;
+      }
+      .contact-title em {
+        font-style: italic;
+        color: var(--gold-light);
+        font-weight: 450;
+      }
+      .contact-sub {
+        color: var(--ink-on-dark-soft);
+        margin-top: 1.2rem;
+        max-width: 460px;
+      }
+      .contact-list {
+        margin-top: 2.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.1rem;
+      }
+      .contact-list a {
+        text-decoration: none;
+        font-size: 1.05rem;
+        color: var(--cream-soft);
+        display: flex;
+        align-items: baseline;
+        gap: 0.9rem;
+        border-bottom: 1px solid transparent;
+        width: fit-content;
+        transition:
+          border-color 0.25s,
+          color 0.25s;
+      }
+      .contact-list a:hover {
+        color: var(--gold-light);
+        border-color: var(--gold);
+      }
+      .contact-list .k {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--gold-dim);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        width: 70px;
+        flex-shrink: 0;
+      }
+
+      footer {
+        border-top: 1px solid rgba(198, 148, 51, 0.25);
+        margin-top: 4rem;
+        padding-top: 1.6rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.04em;
+        color: var(--ink-on-dark-soft);
+      }
+
+      /* reveal animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        .proj-card:hover,
+        .btn:hover {
+          transform: none;
+        }
+      }
+
+      .section-head {
+        max-width: 640px;
+        margin-bottom: 3rem;
+      }
+      .section-head h2 {
+        font-size: clamp(1.9rem, 4vw, 2.6rem);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="nav-name">Siti Nur Hamidah <span>·</span> Portofolio</div>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false">
+          MENU
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#keahlian">Keahlian</a></li>
+          <li><a href="#pengalaman">Pengalaman</a></li>
+          <li><a href="#pendidikan">Pendidikan</a></li>
+          <li><a href="#projek">Projek</a></li>
+          <li><a href="#organisasi">Organisasi</a></li>
+          <li><a href="#sertifikat">Sertifikat</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="beranda">
+      <div class="motif-bg" aria-hidden="true">
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern
+              id="batikMotif"
+              width="70"
+              height="70"
+              patternUnits="userSpaceOnUse"
+              patternTransform="rotate(45)"
+            >
+              <path
+                d="M0 35 Q17.5 5 35 35 T70 35"
+                stroke="currentColor"
+                stroke-width="1.3"
+                fill="none"
+                opacity=".55"
+              />
+              <path
+                d="M0 0 Q17.5 30 35 0"
+                stroke="currentColor"
+                stroke-width="1"
+                fill="none"
+                opacity=".3"
+              />
+              <circle
+                cx="35"
+                cy="35"
+                r="1.6"
+                fill="currentColor"
+                opacity=".5"
+              />
+            </pattern>
+          </defs>
+          <rect width="800" height="600" fill="url(#batikMotif)" />
+        </svg>
+      </div>
+      <div class="wrap">
+        <div class="hero-eyebrow">Portofolio</div>
+        <h1 class="hero-name">Siti Nur<br /><em>Hamidah</em></h1>
+        <div class="hero-role">
+          UI/UX DESIGNER — SISTEM INFORMASI — UNIVERSITAS NEGERI SURABAYA
+        </div>
+        <p class="hero-desc">
+          Lulusan S1 Sistem Informasi Universitas Negeri Surabaya dengan IPK
+          3.73, memiliki ketertarikan pada UI/UX Design dan Social Media
+          Specialist. Menyelesaikan tugas akhir berjudul 'Perancangan Antarmuka
+          Menggunakan Metode User-Centered Design dan Prinsip WCAG 2.2 untuk
+          Mata Pelajaran Matematika Kelas 2 (Studi Kasus: SLB-B Negeri Karya
+          Mulia Surabaya)', yang mencerminkan kemampuan dalam merancang
+          pengalaman visual yang inklusif, fungsional, dan berpusat pada
+          kebutuhan pengguna.
+        </p>
+        <div class="hero-cta">
+          <a href="#projek" class="btn btn-solid">Lihat Projek</a>
+          <a href="#kontak" class="btn btn-outline">Hubungi Saya</a>
+        </div>
+        <div class="hero-contacts">
+          <div class="item">
+            <span class="label">Lokasi</span
+            ><span class="value">Sukomanunggal, Surabaya</span>
+          </div>
+          <div class="item">
+            <span class="label">Telepon</span
+            ><span class="value">0812-1641-1044</span>
+          </div>
+          <div class="item">
+            <span class="label">Email</span
+            ><span class="value">shamidah937@gmail.com</span>
+          </div>
+          <div class="item">
+            <span class="label">Instagram</span
+            ><span class="value">@hamidaa.snh</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TENTANG ================= -->
+    <section class="section section--light" id="tentang">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Tentang</div>
+          <h2>Desain yang baik lahir dari pemahaman yang mendalam.</h2>
+        </div>
+        <div class="about-grid">
+          <div class="reveal">
+            <p class="about-lead">
+              "Bagi saya, desain yang baik adalah desain yang mampu menjembatani
+              kebutuhan pengguna dengan tujuan bisnis, melalui pengalaman yang
+              intuitif, konsisten, dan bermakna."
+            </p>
+            <div class="about-body">
+              <p>
+                Saya merupakan lulusan S1 Sistem Informasi Universitas Negeri
+                Surabaya dengan minat kuat pada UI/UX Design. Latar belakang di
+                bidang sistem informasi membekali saya dengan cara berpikir yang
+                sistematis dalam memahami alur pengguna, struktur data, serta
+                bagaimana teknologi dan desain dapat saling mendukung untuk
+                menghasilkan solusi yang tepat guna.
+              </p>
+              <p>
+                Saya terbiasa merancang dan mengembangkan konsep visual melalui
+                pendekatan user-centered design, mulai dari riset kebutuhan,
+                penyusunan wireframe, hingga prototyping interaktif menggunakan
+                Figma. Untuk memastikan hasil desain dapat diimplementasikan
+                dengan baik, saya juga memahami HTML, CSS, dan JavaScript,
+                sehingga mampu berkomunikasi secara efektif dengan tim
+                pengembang dan memahami batasan teknis dalam proses desain ke
+                pengembangan (design-to-development).
+              </p>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="stat-card">
+              <div class="num">
+                3.73<span style="font-size: 1.1rem">/4.00</span>
+              </div>
+              <div class="lbl">IPK — S1 Sistem Informasi</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">4</div>
+              <div class="lbl">Pengalaman Kerja &amp; Magang</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">6</div>
+              <div class="lbl">Projek Konten, Desain &amp; Basis Data</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 400 20" preserveAspectRatio="none">
+        <path
+          d="M0 10 Q10 0 20 10 T40 10 T60 10 T80 10 T100 10 T120 10 T140 10 T160 10 T180 10 T200 10 T220 10 T240 10 T260 10 T280 10 T300 10 T320 10 T340 10 T360 10 T380 10 T400 10"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.4"
+        />
+      </svg>
+    </div>
+
+    <!-- ================= KEAHLIAN ================= -->
+    <section class="section section--dark" id="keahlian">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Keahlian</div>
+          <h2>Perangkat &amp; kemampuan untuk strategi konten.</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <h3>Bahasa &amp; Basis Data</h3>
+            <div class="tag-row">
+              <span class="tag">HTML</span><span class="tag">CSS</span
+              ><span class="tag">JavaScript</span>
+              <span class="tag">Bootstrap</span><span class="tag">SQL</span
+              ><span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Tools Desain &amp; Konten</h3>
+            <div class="tag-row">
+              <span class="tag">Figma</span><span class="tag">Canva</span
+              ><span class="tag">Adobe Illustrator</span>
+              <span class="tag">Wix.com</span><span class="tag">CapCut</span
+              ><span class="tag">Instagram</span><span class="tag">TikTok</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Office &amp; Pengolahan Data</h3>
+            <div class="tag-row">
+              <span class="tag">MS Word</span><span class="tag">MS Excel</span
+              ><span class="tag">MS PowerPoint</span
+              ><span class="tag">MS Access</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Kemampuan Interpersonal</h3>
+            <div class="tag-row">
+              <span class="tag">Komunikasi</span
+              ><span class="tag">Kerja Tim</span
+              ><span class="tag">Manajemen Waktu</span>
+              <span class="tag">Tanggung Jawab</span
+              ><span class="tag">Adaptasi</span
+              ><span class="tag">Berpikir Objektif</span
+              ><span class="tag">Pemecahan Masalah</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PENGALAMAN KERJA ================= -->
+    <section class="section section--light" id="pengalaman">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Pengalaman Kerja</div>
+          <h2>Jejak profesional lintas industri.</h2>
+        </div>
+        <div class="timeline">
+          <div class="t-item reveal">
+            <span class="t-period">April — Oktober 2025</span>
+            <div class="t-role">Host Live &amp; Content Seller</div>
+            <div class="t-org">Jagat Sarung</div>
+            <p class="t-desc">
+              Menjalankan live selling di TikTok, memproduksi konten teaser
+              untuk promosi produk, merekapitulasi data pesanan, serta merespons
+              pertanyaan dan keluhan pelanggan secara proaktif dan real-time.
+            </p>
+          </div>
+          <div class="t-item reveal">
+            <span class="t-period">Januari — April 2025</span>
+            <div class="t-role">IT Support (Intern)</div>
+            <div class="t-org">Ciputra Hospital Surabaya</div>
+            <p class="t-desc">
+              Merancang antarmuka dan prototipe interaktif untuk aplikasi mobile
+              menggunakan Figma, menangani troubleshooting perangkat (printer,
+              program TV), serta membantu rekapitulasi data menggunakan VLOOKUP
+              di Excel.
+            </p>
+          </div>
+          <div class="t-item reveal">
+            <span class="t-period">Juli — Desember 2024</span>
+            <div class="t-role">Social Media Admin</div>
+            <div class="t-org">Medtro</div>
+            <p class="t-desc">
+              Mengelola akun Instagram dan TikTok perusahaan, menyusun kalender
+              konten, meliput serta mendokumentasikan acara kesehatan, dan
+              membuat copywriting yang menarik, edukatif, dan sesuai brand
+              voice.
+            </p>
+          </div>
+          <div class="t-item reveal">
+            <span class="t-period">Januari — Maret 2021</span>
+            <div class="t-role">Admin E-commerce (Intern)</div>
+            <div class="t-org">CV. Fastprint Indonesia</div>
+            <p class="t-desc">
+              Mengelola platform Shopee, Tokopedia, dan Bukalapak, bertanggung
+              jawab atas manajemen katalog produk dari input hingga pembaruan
+              data, serta berkoordinasi lintas divisi untuk menjaga akurasi
+              informasi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 400 20" preserveAspectRatio="none">
+        <path
+          d="M0 10 Q10 0 20 10 T40 10 T60 10 T80 10 T100 10 T120 10 T140 10 T160 10 T180 10 T200 10 T220 10 T240 10 T260 10 T280 10 T300 10 T320 10 T340 10 T360 10 T380 10 T400 10"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.4"
+        />
+      </svg>
+    </div>
+
+    <!-- ================= PENDIDIKAN ================= -->
+    <section class="section section--soft" id="pendidikan">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Pendidikan</div>
+          <h2>Latar belakang akademik.</h2>
+        </div>
+        <div class="edu-grid">
+          <div class="edu-card reveal">
+            <span class="period">2022 — 2026</span>
+            <h3>Universitas Negeri Surabaya</h3>
+            <div class="concentration">
+              S1 Sistem Informasi — Konsentrasi Enterprise Digital &amp;
+              Transformation
+            </div>
+            <div class="gpa">IPK 3.73 / 4.00</div>
+          </div>
+          <div class="edu-card reveal">
+            <span class="period">2019 — 2022</span>
+            <h3>SMK Negeri 1 Surabaya</h3>
+            <div class="concentration">Kompetensi Keahlian Multimedia</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJEK ================= -->
+    <section class="section section--light" id="projek">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Projek</div>
+          <h2>Karya konten, desain, &amp; pengembangan digital.</h2>
+        </div>
+        <div class="proj-grid">
+          <div class="proj-card reveal">
+            <span class="proj-tag">UI/UX — Skripsi</span>
+            <h3>LearnMath: Desain UI/UX untuk Siswa Tunarungu</h3>
+            <span class="proj-period">Januari — Juni 2026</span>
+            <span class="proj-tools">Figma · Prinsip WCAG 2.2</span>
+            <p>
+              Antarmuka pembelajaran matematika kelas 2 bagi siswa SD di SLB-B
+              Negeri Karya Mulia Surabaya, dirancang dengan metode User-Centered
+              Design dan prinsip aksesibilitas WCAG 2.2.
+            </p>
+          </div>
+          <div class="proj-card reveal">
+            <span class="proj-tag">UI/UX — Pemerintahan</span>
+            <h3>SIRASA — Sistem Informasi Risiko dan Aset</h3>
+            <span class="proj-period">Agustus — Desember 2025</span>
+            <span class="proj-tools">Figma</span>
+            <p>
+              Desain antarmuka untuk empat peran pengguna — Teknisi, Admin,
+              Verifikator, dan Auditor — disusun bersama system analyst untuk
+              memetakan kebutuhan tiap peran.
+            </p>
+          </div>
+          <div class="proj-card reveal">
+            <span class="proj-tag">UI/UX — Mobile App</span>
+            <h3>Aplikasi Mobile Ciputra Hospital Surabaya</h3>
+            <span class="proj-period">Januari — April 2025</span>
+            <span class="proj-tools">Figma — Prototipe Interaktif</span>
+            <p>
+              Prototipe interaktif aplikasi mobile rumah sakit, dirancang
+              berkolaborasi dengan mentor untuk memenuhi kebutuhan pengguna
+              secara langsung.
+            </p>
+          </div>
+          <div class="proj-card reveal">
+            <span class="proj-tag">Basis Data — Website</span>
+            <h3>Website &amp; Database I-Learning SIAKAD</h3>
+            <span class="proj-period">Februari — Juni 2024</span>
+            <span class="proj-tools">XAMPP · phpMyAdmin · VS Code</span>
+            <p>
+              Implementasi basis data akademik beserta koneksinya, lengkap
+              dengan perancangan Conceptual dan Physical Data Model (CDM &amp;
+              PDM).
+            </p>
+          </div>
+          <div class="proj-card reveal">
+            <span class="proj-tag">UI — Website</span>
+            <h3>Website Perkebunan Semoga Sukses</h3>
+            <span class="proj-period">Februari — Mei 2023</span>
+            <span class="proj-tools">Wix.com</span>
+            <p>
+              Delapan desain antarmuka dengan beragam fitur untuk situs web
+              perkebunan, dibangun menggunakan platform Wix.com.
+            </p>
+          </div>
+          <div class="proj-card reveal">
+            <span class="proj-tag">Basis Data</span>
+            <h3>Database Pembelian Tiket Kereta Api</h3>
+            <span class="proj-period">Februari — Juni 2023</span>
+            <span class="proj-tools">MS Access</span>
+            <p>
+              Perancangan tabel, konfigurasi atribut, serta pengelolaan relasi
+              antar-tabel untuk sistem pembelian tiket kereta api.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 400 20" preserveAspectRatio="none">
+        <path
+          d="M0 10 Q10 0 20 10 T40 10 T60 10 T80 10 T100 10 T120 10 T140 10 T160 10 T180 10 T200 10 T220 10 T240 10 T260 10 T280 10 T300 10 T320 10 T340 10 T360 10 T380 10 T400 10"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.4"
+        />
+      </svg>
+    </div>
+
+    <!-- ================= ORGANISASI ================= -->
+    <section class="section section--dark" id="organisasi">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Pengalaman Organisasi</div>
+          <h2>Kontribusi dalam publikasi dan kerja tim digital.</h2>
+        </div>
+        <div class="timeline org-list">
+          <div class="t-item reveal">
+            <span class="t-period">Juni — Juli 2025</span>
+            <div class="t-role">Koordinator Tim Multimedia</div>
+            <div class="t-org">
+              Lembaga Pers Mahasiswa Informatika — Digital Media Creative Space
+              Informatics
+            </div>
+            <p class="t-desc">
+              Mengoordinasikan tim multimedia (caption, media partner,
+              dokumentasi, publikasi, interaktif IGS), membagi tugas agar target
+              konten sesuai timeline, dan mengawasi kualitas dokumentasi serta
+              publikasi.
+            </p>
+          </div>
+          <div class="t-item reveal">
+            <span class="t-period">Juni — Oktober 2024</span>
+            <div class="t-role">Tim Redaksi</div>
+            <div class="t-org">
+              PPK Ormawa Kemendikbud — "Klobur Smart Village"
+            </div>
+            <p class="t-desc">
+              Menyusun dan mengelola program Si Admin untuk optimasi pelayanan
+              administrasi dan pesona wisata berbasis sistem informasi di Desa
+              Klobur.
+            </p>
+          </div>
+          <div class="t-item reveal">
+            <span class="t-period">Februari — Desember 2024</span>
+            <div class="t-role">Staf Departemen Minat &amp; Bakat</div>
+            <div class="t-org">
+              Himpunan Mahasiswa Rumpun Teknik Informatika UNESA
+            </div>
+            <p class="t-desc">
+              Menjadi pembawa acara pada pemutaran film Teknik Informatika dan
+              bagian dari sie acara LKMM-TD Informatika 2024.
+            </p>
+          </div>
+          <div class="t-item reveal">
+            <span class="t-period">Maret 2024</span>
+            <div class="t-role">Sekretaris</div>
+            <div class="t-org">
+              PIONIR — Pekan Inovasi dan Kewirausahaan Sistem Informasi
+            </div>
+            <p class="t-desc">
+              Menyusun LPJ dan proposal acara PIONIR, serta menyiapkan surat
+              permohonan pinjaman.
+            </p>
+          </div>
+          <div class="t-item reveal">
+            <span class="t-period">Maret — Desember 2023</span>
+            <div class="t-role">Staf Departemen Minat &amp; Bakat</div>
+            <div class="t-org">
+              Himpunan Mahasiswa Rumpun Teknik Informatika UNESA
+            </div>
+            <p class="t-desc">
+              Merancang dan mengelola acara sebagai humas, publikasi, dan
+              logistik; koordinator lapangan AMELIORER 2023; menyusun regulasi
+              cabang Badminton IT Sport Competition 2023; serta bertugas di
+              divisi dokumentasi dan desain poster.
+            </p>
+          </div>
+          <div class="t-item reveal">
+            <span class="t-period">2020 — 2021</span>
+            <div class="t-role">
+              Seksi Bidang Persepsi, Apresiasi, dan Kreasi Seni
+            </div>
+            <div class="t-org">OSIS SMK Negeri 1 Surabaya</div>
+            <p class="t-desc">
+              Memantau kegiatan ekstrakurikuler seni, mendata LPJ, dan menjadi
+              penghubung antara ekstrakurikuler, guru, dan kepala sekolah.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERTIFIKAT ================= -->
+    <section
+      class="section section--dark"
+      id="sertifikat"
+      style="padding-top: 8"
+    >
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Sertifikat</div>
+          <h2>Pengakuan kompetensi &amp; kontribusi.</h2>
+        </div>
+        <div class="cert-cols">
+          <div class="reveal">
+            <h3
+              style="
+                color: var(--gold-light);
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+              "
+            >
+              Sertifikat Kompetensi
+            </h3>
+            <ul class="cert-list">
+              <li>
+                <span class="c-name">Odoo Student Diploma</span
+                ><span class="c-meta">Odoo, 2025</span>
+              </li>
+              <li>
+                <span class="c-name">Mastering SQL Fundamental</span
+                ><span class="c-meta">Smartpath, 2024</span>
+              </li>
+              <li>
+                <span class="c-name"
+                  >Multimedia Competency Skill KKNI Level II</span
+                ><span class="c-meta">BNSP, 2022</span>
+              </li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <h3
+              style="
+                color: var(--gold-light);
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+              "
+            >
+              Sertifikat Organisasi
+            </h3>
+            <div class="badge-cloud">
+              <span class="badge"
+                >Koordinator Tim Multimedia — LPM Digitivs 2024</span
+              >
+              <span class="badge">PPK Ormawa HMP PTI 2024</span>
+              <span class="badge">Panitia LKMM-TD 2024</span>
+              <span class="badge">Staf Departemen Minat &amp; Bakat 2023</span>
+              <span class="badge">Panitia XPROJECT 2023</span>
+              <span class="badge">Panitia IT Sport Competition 2023</span>
+              <span class="badge">Panitia Ameliorer 2023</span>
+              <span class="badge">Panitia Moderasi Beragama 2023</span>
+              <span class="badge">HIMTI Teach 2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KONTAK ================= -->
+    <section class="section section--dark" id="kontak" style="padding-top: 8">
+      <div class="wrap">
+        <div class="contact-inner">
+          <div class="reveal">
+            <div class="eyebrow">Kontak</div>
+            <h2 class="contact-title">
+              Mari <em>berkolaborasi</em> merancang pengalaman yang inklusif.
+            </h2>
+            <p class="contact-sub">
+              Terbuka untuk diskusi, peluang magang, maupun kolaborasi seputar
+              strategi media sosial, content creation, copywriting, dan kampanye
+              digital.
+            </p>
+          </div>
+          <div class="reveal">
+            <div class="contact-list">
+              <a href="mailto:shamidah937@gmail.com"
+                ><span class="k">Email</span> shamidah937@gmail.com</a
+              >
+              <a href="tel:081216411044"
+                ><span class="k">Telepon</span> 0812-1641-1044</a
+              >
+              <a
+                href="https://instagram.com/hamidaa.snh"
+                target="_blank"
+                rel="noopener"
+                ><span class="k">Instagram</span> @hamidaa.snh</a
+              >
+              <a href="#beranda"
+                ><span class="k">Lokasi</span> Sukomanunggal, Surabaya, Jawa
+                Timur</a
+              >
+            </div>
+          </div>
+        </div>
+        <footer>
+          <span>© 2026 Siti Nur Hamidah</span>
+          <span>Sistem Informasi · UI/UX Design · Data</span>
+        </footer>
+      </div>
+    </section>
+
+    <script>
+      // mobile nav toggle
+      const navToggle = document.getElementById("navToggle");
+      const navLinks = document.getElementById("navLinks");
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", isOpen);
+      });
+      navLinks.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", false);
+        }),
+      );
+
+      // scroll reveal
+      const revealEls = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+        );
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add("in"));
+      }
+    </script>
+  </body>
+</html>
